@@ -35,7 +35,7 @@ def get_all_wallets(db: Session,) -> list[Wallet]:
     
 
 def create_wallet(db: Session, wallet_name:str , initial_balance: Decimal) -> Wallet:
-    wallet = Wallet(name= wallet_name, balance=initial_balance)
+    wallet = Wallet(name=wallet_name, balance=initial_balance)
     db.add(wallet)
     db.flush()
     return wallet
