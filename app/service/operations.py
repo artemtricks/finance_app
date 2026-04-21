@@ -6,7 +6,7 @@ from app.models import User
 
 
 
-def add_income(db: Session, current_user: User, operation: OperationRequest):
+def add_income(*, db: Session, current_user: User, operation: OperationRequest):
    
     if not wallets_repository.is_wallet_exist(db, operation.wallet_name, current_user.id):
        raise HTTPException(
@@ -27,7 +27,7 @@ def add_income(db: Session, current_user: User, operation: OperationRequest):
 
 
 
-def add_expense( db: Session, current_user: User,operation: OperationRequest):
+def add_expense(*, db: Session, current_user: User,operation: OperationRequest):
  
     if not wallets_repository.is_wallet_exist(db, operation.wallet_name, current_user.id):
        raise HTTPException(

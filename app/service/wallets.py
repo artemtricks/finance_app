@@ -4,7 +4,7 @@ from app.repository import wallets as wallets_repository
 from sqlalchemy.orm import Session
 from app.models import User
 
-def get_wallet(db: Session, current_user: User, wallet_name: str | None = None  ):
+def get_wallet(*, db: Session, current_user: User, wallet_name: str | None = None  ):
     print(current_user, wallet_name)
     if wallet_name is None:
         wallets = wallets_repository.get_all_wallets(db, current_user.id)
@@ -19,7 +19,7 @@ def get_wallet(db: Session, current_user: User, wallet_name: str | None = None  
 
 
 
-def create_wallet(db:Session, wallet: CreateWalletRequest, current_user:User):
+def create_wallet(*, db:Session, wallet: CreateWalletRequest, current_user:User):
    
     if wallets_repository.is_wallet_exist(db, wallet.name, current_user.id):
       raise HTTPException(

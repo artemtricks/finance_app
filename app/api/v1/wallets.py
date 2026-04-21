@@ -10,12 +10,12 @@ router = APIRouter()
 
 @router.get("/balance")
 def get_balance( wallet_name: str | None = None, current_user: User = Depends(get_current_user), db: Session = Depends(get_db),):
-    return wallets_service.get_wallet(db, current_user, wallet_name)
+    return wallets_service.get_wallet(db=db, current_user=current_user, wallet_name=wallet_name)
     
 
 
 @router.post("/wallets")
 def create_wallet(wallet: CreateWalletRequest, current_user: User = Depends(get_current_user), db: Session = Depends(get_db) ):
-    return wallets_service.create_wallet(db, wallet, current_user)
+    return wallets_service.create_wallet(db=db, wallet=wallet, current_user=current_user)
    
 
