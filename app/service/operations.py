@@ -20,7 +20,7 @@ def add_income(*, db: Session, current_user: User, operation: OperationRequest):
        'message': 'Income added',
        'wallet': operation.wallet_name,
        'amount': operation.amount,
-       'description': operation.descriptions,
+       'descriptions': operation.descriptions,
        'new_balance': wallet.balance
    }
   
@@ -54,7 +54,7 @@ def add_expense(*, db: Session, current_user: User,operation: OperationRequest):
        'message': 'Expense added',
        'wallet': operation.wallet_name,
        'amount': operation.amount,
-       'description': operation.descriptions,
+       'descriptions': operation.descriptions,
        'new_balance': wallet.balance
     }
    
