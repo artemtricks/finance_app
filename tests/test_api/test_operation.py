@@ -19,7 +19,7 @@ def test_add_expense_success(db_session, client):
         "Authorization": f"Bearer {user.login}"
     })
 
-    print(response)
+
     assert response.status_code == 200
     assert response.json()['message'] == "Expense added"
     assert response.json()['wallet'] == wallet.name
